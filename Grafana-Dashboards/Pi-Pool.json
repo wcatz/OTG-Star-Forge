@@ -72,7 +72,7 @@
       "pluginVersion": "7.5.3",
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_Forge_adopted_int",
+          "expr": "cardano_node_metrics_Forge_adopted_int",
           "interval": "",
           "legendFormat": "",
           "queryType": "randomWalk",
@@ -131,7 +131,7 @@
       "pluginVersion": "7.5.3",
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_Forge_forged_int",
+          "expr": "cardano_node_metrics_Forge_forged_int",
           "interval": "",
           "legendFormat": "",
           "queryType": "randomWalk",
@@ -193,7 +193,7 @@
       "pluginVersion": "7.5.3",
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_Forge_could_not_forge_int",
+          "expr": "cardano_node_metrics_Forge_could_not_forge_int",
           "interval": "",
           "legendFormat": "",
           "queryType": "randomWalk",
@@ -255,7 +255,7 @@
       "pluginVersion": "7.5.3",
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_txsProcessedNum_int",
+          "expr": "cardano_node_metrics_txsProcessedNum_int",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -315,7 +315,7 @@
       "pluginVersion": "7.5.3",
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_slotInEpoch_int",
+          "expr": "cardano_node_metrics_slotInEpoch_int",
           "instant": true,
           "interval": "",
           "legendFormat": "",
@@ -374,7 +374,7 @@
       "pluginVersion": "7.5.3",
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_slotNum_int",
+          "expr": "cardano_node_metrics_slotNum_int",
           "interval": "",
           "legendFormat": "",
           "queryType": "randomWalk",
@@ -442,7 +442,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "100 - (avg by(alias) (irate(Prometheus_cpu_seconds_total{mode=\"idle\",alias=\"N1\"}[1m])) * 100)",
+          "expr": "100 - (avg by(alias) (irate(node_cpu_seconds_total{mode=\"idle\",alias=\"N1\"}[1m])) * 100)",
           "instant": true,
           "interval": "",
           "legendFormat": "CPU",
@@ -450,7 +450,7 @@
         },
         {
           "exemplar": true,
-          "expr": "(1 - (Prometheus_memory_MemAvailable_bytes{alias=\"N1\"} / (Prometheus_memory_MemTotal_bytes{alias=\"N1\"})))* 100",
+          "expr": "(1 - (node_memory_MemAvailable_bytes{alias=\"N1\"} / (node_memory_MemTotal_bytes{alias=\"N1\"})))* 100",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -459,7 +459,7 @@
         },
         {
           "exemplar": true,
-          "expr": "100 - ((Prometheus_filesystem_avail_bytes{mountpoint=\"/\",fstype!=\"rootfs\",alias=\"N1\"} * 100) / Prometheus_filesystem_size_bytes{mountpoint=\"/\",fstype!=\"rootfs\",alias=\"N1\"})",
+          "expr": "100 - ((node_filesystem_avail_bytes{mountpoint=\"/\",fstype!=\"rootfs\",alias=\"N1\"} * 100) / node_filesystem_size_bytes{mountpoint=\"/\",fstype!=\"rootfs\",alias=\"N1\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "Disk",
@@ -467,7 +467,7 @@
         },
         {
           "exemplar": true,
-          "expr": "(1 - (Prometheus_memory_SwapFree_bytes{alias=\"N1\"} / Prometheus_memory_SwapTotal_bytes{alias=\"N1\"})) * 100",
+          "expr": "(1 - (node_memory_SwapFree_bytes{alias=\"N1\"} / node_memory_SwapTotal_bytes{alias=\"N1\"})) * 100",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -525,7 +525,7 @@
       "pluginVersion": "7.5.3",
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_epoch_int",
+          "expr": "cardano_node_metrics_epoch_int",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -585,7 +585,7 @@
       "pluginVersion": "7.5.3",
       "targets": [
         {
-          "expr": "(cardano_Prometheus_metrics_remainingKESPeriods_int * 1.45)",
+          "expr": "(cardano_node_metrics_remainingKESPeriods_int * 1.45)",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -654,7 +654,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "cardano_Prometheus_metrics_connectedPeers_int",
+          "expr": "cardano_node_metrics_connectedPeers_int",
           "interval": "",
           "legendFormat": "{{alias}}",
           "refId": "A"
@@ -722,7 +722,7 @@
       "targets": [
         {
           "color": "semi-dark-purple",
-          "expr": "cardano_Prometheus_metrics_connectedPeers_int",
+          "expr": "cardano_node_metrics_connectedPeers_int",
           "interval": "",
           "legendFormat": "{{alias}}",
           "queryType": "randomWalk",
@@ -827,7 +827,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(time() - Prometheus_boot_time_seconds{alias=\"N1\"})",
+          "expr": "sum(time() - node_boot_time_seconds{alias=\"N1\"})",
           "format": "time_series",
           "hide": false,
           "instant": true,
@@ -902,7 +902,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "cardano_Prometheus_metrics_slotInEpoch_int/432000",
+          "expr": "cardano_node_metrics_slotInEpoch_int/432000",
           "interval": "",
           "legendFormat": "{{alias}}",
           "queryType": "randomWalk",
@@ -961,7 +961,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "100 - (avg by(alias) (irate(Prometheus_cpu_seconds_total{mode=\"idle\"}[1m])) * 100)",
+          "expr": "100 - (avg by(alias) (irate(node_cpu_seconds_total{mode=\"idle\"}[1m])) * 100)",
           "interval": "",
           "legendFormat": "{{alias}}",
           "queryType": "randomWalk",
@@ -1061,7 +1061,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_txsInMempool_int",
+          "expr": "cardano_node_metrics_txsInMempool_int",
           "interval": "",
           "legendFormat": "{{alias}}",
           "queryType": "randomWalk",
@@ -1164,14 +1164,14 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "Prometheus_timex_maxerror_seconds * 1000000",
+          "expr": "node_timex_maxerror_seconds * 1000000",
           "hide": false,
           "interval": "",
           "legendFormat": "{{alias}} max error",
           "refId": "B"
         },
         {
-          "expr": "Prometheus_timex_estimated_error_seconds * 1000000",
+          "expr": "node_timex_estimated_error_seconds * 1000000",
           "interval": "",
           "legendFormat": "{{alias}} est error",
           "queryType": "randomWalk",
@@ -1182,7 +1182,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Prometheus_timex",
+      "title": "node_timex",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1271,7 +1271,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_mempoolBytes_int",
+          "expr": "cardano_node_metrics_mempoolBytes_int",
           "interval": "",
           "legendFormat": "{{alias}}",
           "queryType": "randomWalk",
@@ -1371,7 +1371,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_slotsMissedNum_int",
+          "expr": "cardano_node_metrics_slotsMissedNum_int",
           "interval": "",
           "legendFormat": "{{alias}}",
           "queryType": "randomWalk",
@@ -1472,7 +1472,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "cardano_Prometheus_metrics_density_real * 2000 ",
+          "expr": "cardano_node_metrics_density_real * 2000 ",
           "interval": "",
           "legendFormat": "{{alias}}",
           "queryType": "randomWalk",
@@ -1582,7 +1582,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Prometheus_memory_MemFree_bytes",
+      "title": "node_memory_MemFree_bytes",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1672,7 +1672,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "Prometheus_thermal_zone_temp*1.8+32",
+          "expr": "node_thermal_zone_temp*1.8+32",
           "interval": "",
           "legendFormat": "{{alias}}",
           "queryType": "randomWalk",
@@ -1683,7 +1683,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Prometheus_thermal_zone_temp",
+      "title": "node_thermal_zone_temp",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1780,14 +1780,14 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "irate(Prometheus_disk_written_bytes_total[1m])",
+          "expr": "irate(node_disk_written_bytes_total[1m])",
           "interval": "",
           "legendFormat": "{{alias}} {{device}} write",
           "queryType": "randomWalk",
           "refId": "A"
         },
         {
-          "expr": "irate(Prometheus_disk_read_bytes_total[1m])",
+          "expr": "irate(node_disk_read_bytes_total[1m])",
           "hide": false,
           "interval": "",
           "legendFormat": "{{alias}} {{device}} read",
@@ -1896,14 +1896,14 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "irate(Prometheus_network_receive_bytes_total[1m])*8",
+          "expr": "irate(node_network_receive_bytes_total[1m])*8",
           "hide": false,
           "interval": "",
           "legendFormat": "{{device}} receive",
           "refId": "B"
         },
         {
-          "expr": "irate(Prometheus_network_transmit_bytes_total[1m])*8",
+          "expr": "irate(node_network_transmit_bytes_total[1m])*8",
           "interval": "",
           "legendFormat": "{{device}} transmit",
           "queryType": "randomWalk",
